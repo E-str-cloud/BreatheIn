@@ -20,12 +20,16 @@ export default function ActionScreen({ audio }: ActionScreenProps) {
     <main className="action-screen">
       <div className="action-screen__content">
         <div className="action-screen__rings">
-          <div className="action-screen__ring action-screen__ring--1" aria-hidden="true" />
-          <div className="action-screen__ring action-screen__ring--2" aria-hidden="true" />
-          <div className="action-screen__ring action-screen__ring--3" aria-hidden="true" />
-          <div className="action-screen__ring action-screen__ring--4" aria-hidden="true" />
-          <div className="action-screen__ring action-screen__ring--5" aria-hidden="true" />
+          {/* The rings and the Play circle's white disc rotate; the button and its icon stay still. */}
+          <div className="action-screen__orbit" aria-hidden="true">
+            <div className="action-screen__ring action-screen__ring--1" />
+            <div className="action-screen__ring action-screen__ring--2" />
+            <div className="action-screen__ring action-screen__ring--3" />
+            <div className="action-screen__ring action-screen__ring--4" />
+            <div className="action-screen__ring action-screen__ring--5" />
+          </div>
           <button type="button" className="action-screen__play" aria-label="Start" onClick={handleStart}>
+            <span className="action-screen__play-disc" aria-hidden="true" />
             <PlayIcon />
           </button>
         </div>

@@ -70,6 +70,18 @@ describe('Action screen', () => {
     expect(screen.queryByRole('button', { name: 'הפעלת קול' })).not.toBeInTheDocument()
   })
 
+  it('groups the decorative rings in a rotating orbit that excludes the Play circle', async () => {
+    await enterActionScreen()
+
+    const orbit = document.querySelector('.action-screen__orbit')
+    expect(orbit).not.toBeNull()
+    expect(orbit).toHaveAttribute('aria-hidden', 'true')
+    expect(orbit!.querySelectorAll('.action-screen__ring')).toHaveLength(5)
+
+    const [playCircle] = screen.getAllByRole('button', { name: 'Start' })
+    expect(orbit!.contains(playCircle)).toBe(false)
+  })
+
   it('Start and the Play circle each play one sound from the catalog', async () => {
     const user = await enterActionScreen()
     const [playCircle, startButton] = screen.getAllByRole('button', { name: 'Start' })

@@ -30,6 +30,27 @@
   justify-content: center;
 }
 
+/* The rings rotate together, slowly and steadily, around the motif's center. */
+.action-screen__orbit {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  animation: action-screen-orbit 40s linear infinite;
+  will-change: transform;
+}
+
+@keyframes action-screen-orbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .action-screen__ring {
   position: absolute;
   width: 82%;
@@ -65,6 +86,7 @@
 
 .action-screen__play {
   position: relative;
+  z-index: 1;
   width: 43%;
   aspect-ratio: 1;
   display: flex;
@@ -73,11 +95,26 @@
   padding: 0 0 0 4px; /* optical centering of the triangle */
   border: none;
   border-radius: 50%;
-  background: var(--color-white);
+  background: transparent;
   color: var(--color-sage);
   box-shadow: var(--shadow-soft);
   cursor: pointer;
   transition: transform 120ms ease;
+}
+
+/* The white disc turns with the rings; the button and its Play icon stay still. */
+.action-screen__play-disc {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--color-white);
+  pointer-events: none;
+  animation: action-screen-orbit 40s linear infinite;
+  will-change: transform;
+}
+
+.action-screen__play svg {
+  position: relative;
 }
 
 .action-screen__play:active {
