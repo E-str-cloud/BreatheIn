@@ -1,0 +1,40 @@
+.primary-button {
+  width: min(240px, 100%);
+  min-height: 56px;
+  padding: 0 var(--space-4);
+  border: none;
+  border-radius: var(--radius-pill);
+  background: var(--color-sage);
+  color: var(--color-white);
+  font-family: var(--font-family);
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1;
+  box-shadow: var(--shadow-soft);
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease, filter 120ms ease;
+}
+
+.primary-button:hover {
+  filter: brightness(0.97);
+}
+
+.primary-button:active {
+  transform: scale(0.98);
+  box-shadow: var(--shadow-soft-pressed);
+}
+
+/* Component shadow would otherwise override the global focus ring. */
+.primary-button:focus-visible {
+  box-shadow: var(--focus-ring), var(--shadow-soft);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .primary-button {
+    transition: none;
+  }
+
+  .primary-button:active {
+    transform: none;
+  }
+}

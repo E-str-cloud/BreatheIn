@@ -1,0 +1,86 @@
+.home-screen {
+  position: relative;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6) var(--space-3);
+  overflow: hidden;
+}
+
+.home-screen__content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: var(--content-max-width);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-8);
+  /* Lift the group slightly above center, matching the mockup proportions. */
+  margin-bottom: 10dvh;
+}
+
+.home-screen__title {
+  margin: 0;
+  color: var(--color-charcoal);
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.2;
+  text-align: center;
+}
+
+/* Decorative soft rings: overlapping translucent pastel circles in two corners. */
+.home-screen__rings {
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  pointer-events: none;
+}
+
+.home-screen__rings,
+.home-screen__rings::before,
+.home-screen__rings::after {
+  border-radius: 50%;
+}
+
+.home-screen__rings::before,
+.home-screen__rings::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.home-screen__rings--top {
+  top: -110px;
+  left: -100px;
+  background: rgba(200, 249, 217, 0.45);
+}
+
+.home-screen__rings--top::before {
+  background: rgba(231, 221, 247, 0.4);
+  transform: translate(36px, 24px);
+}
+
+.home-screen__rings--top::after {
+  background: rgba(231, 248, 167, 0.35);
+  transform: translate(10px, 60px);
+}
+
+.home-screen__rings--bottom {
+  bottom: -120px;
+  right: -110px;
+  width: 300px;
+  height: 300px;
+  background: rgba(247, 210, 233, 0.5);
+}
+
+.home-screen__rings--bottom::before {
+  background: rgba(231, 221, 247, 0.5);
+  transform: translate(-30px, -30px);
+}
+
+.home-screen__rings--bottom::after {
+  background: rgba(231, 248, 167, 0.3);
+  transform: translate(-80px, -10px);
+}
