@@ -57,5 +57,5 @@
 
 ## פקודות הרצה
 > Claude ממלא זאת ברגע שהאפליקציה יכולה לרוץ (בדרך כלל בסיום Milestone 1), ומעדכן אם משהו משתנה.
-- **הרצה (dev):** `npm run dev` (ואז לפתוח http://localhost:5173)
-- **בדיקות (test):** `npm test` (וגם `npm run typecheck`, `npm run lint`, `npm run build`)
+- **הרצה (dev):** `npm run dev` (ואז לפתוח http://localhost:5173). ב־PowerShell במחשב הזה `npm` חסום (Execution Policy) — להשתמש ב־`npm.cmd run dev`.
+- **בדיקות (test):** `npm test` (וגם `npm run test:e2e`, `npm run typecheck`, `npm run lint`, `npm run build`)

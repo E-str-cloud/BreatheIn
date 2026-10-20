@@ -1,0 +1,102 @@
+.action-screen {
+  position: relative;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6) var(--space-3);
+  overflow: hidden;
+}
+
+.action-screen__content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: var(--content-max-width);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+/* Overlapping translucent pastel rings with the Play button in the middle. */
+.action-screen__rings {
+  --rings-size: min(280px, 72vw);
+  position: relative;
+  width: var(--rings-size);
+  height: var(--rings-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.action-screen__ring {
+  position: absolute;
+  width: 82%;
+  height: 82%;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.action-screen__ring--1 {
+  background: rgba(200, 249, 217, 0.8);
+  transform: translate(-14%, 2%);
+}
+
+.action-screen__ring--2 {
+  background: rgba(231, 221, 247, 0.8);
+  transform: translate(-4%, -10%);
+}
+
+.action-screen__ring--3 {
+  background: rgba(247, 210, 233, 0.85);
+  transform: translate(9%, 4%);
+}
+
+.action-screen__ring--4 {
+  background: rgba(231, 248, 167, 0.4);
+  transform: translate(4%, -6%);
+}
+
+.action-screen__ring--5 {
+  background: rgba(201, 248, 244, 0.35);
+  transform: translate(-8%, 9%);
+}
+
+.action-screen__play {
+  position: relative;
+  width: 43%;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0 0 4px; /* optical centering of the triangle */
+  border: none;
+  border-radius: 50%;
+  background: var(--color-white);
+  color: var(--color-sage);
+  box-shadow: var(--shadow-soft);
+  cursor: pointer;
+  transition: transform 120ms ease;
+}
+
+.action-screen__play:active {
+  transform: scale(0.96);
+}
+
+.action-screen__play:focus-visible {
+  box-shadow: var(--focus-ring), var(--shadow-soft);
+}
+
+.action-screen__retry-slot {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .action-screen__play:active {
+    transform: none;
+  }
+}

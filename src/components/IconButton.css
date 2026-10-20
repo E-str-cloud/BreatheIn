@@ -1,0 +1,33 @@
+.icon-button {
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(200, 249, 217, 0.7);
+  color: var(--color-charcoal);
+  box-shadow: var(--shadow-soft);
+  cursor: pointer;
+  transition: transform 120ms ease, filter 120ms ease;
+}
+
+.icon-button:hover {
+  filter: brightness(0.97);
+}
+
+.icon-button:active {
+  transform: scale(0.95);
+}
+
+.icon-button:focus-visible {
+  box-shadow: var(--focus-ring), var(--shadow-soft);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .icon-button:active {
+    transform: none;
+  }
+}
