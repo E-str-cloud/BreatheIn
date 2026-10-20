@@ -58,4 +58,6 @@
 ## פקודות הרצה
 > Claude ממלא זאת ברגע שהאפליקציה יכולה לרוץ (בדרך כלל בסיום Milestone 1), ומעדכן אם משהו משתנה.
 - **הרצה (dev):** `npm run dev` (ואז לפתוח http://localhost:5173). ב־PowerShell במחשב הזה `npm` חסום (Execution Policy) — להשתמש ב־`npm.cmd run dev`.
-- **בדיקות (test):** `npm test` (וגם `npm run test:e2e`, `npm run typecheck`, `npm run lint`, `npm run build`)
+- **הרצת גרסת PWA (עם Service Worker ו־Offline):** `npm run start:pwa` (בונה ומריץ; לפתוח http://localhost:4173). בשרת הפיתוח (5173) אין Service Worker.
+- **בדיקות (test):** `npm test` (וגם `npm run test:e2e`, `npm run test:pwa`, `npm run typecheck`, `npm run lint`, `npm run build`)
+- **יצירת אייקונים מחדש** (אחרי שינוי `public/icon-source.svg`): `npm run generate-pwa-assets -- --override`
