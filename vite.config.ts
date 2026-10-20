@@ -5,7 +5,12 @@ import { VitePWA } from 'vite-plugin-pwa'
 
 const WARM_WHITE = '#FAF9F6'
 
+// Site path: '/' when served from a domain root (local, Cloudflare Pages);
+// GitHub Pages serves the app from '/<repo>/', so its build sets BASE_PATH.
+const BASE = process.env.BASE_PATH ?? '/'
+
 export default defineConfig({
+  base: BASE,
   plugins: [
     react(),
     VitePWA({
@@ -19,8 +24,8 @@ export default defineConfig({
         short_name: 'נשום פנימה',
         lang: 'he',
         dir: 'rtl',
-        start_url: '/',
-        scope: '/',
+        start_url: BASE,
+        scope: BASE,
         display: 'standalone',
         theme_color: WARM_WHITE,
         background_color: WARM_WHITE,
@@ -35,7 +40,7 @@ export default defineConfig({
         // Audio and fonts are listed explicitly: the default patterns would leave them out of the precache.
         // (manifest.webmanifest is added by the plugin itself.)
         globPatterns: ['**/*.{js,css,html,ico,png,svg,woff,woff2,mp3}'],
-        navigateFallback: '/index.html',
+        navigateFallback: `${BASE}index.html`,
         cleanupOutdatedCaches: true,
       },
     }),
